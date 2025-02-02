@@ -11,7 +11,7 @@ axios.interceptors.response.use(
     return Promise.reject(error);
   }
 )
-
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   //get all tasks
   getTasks: async () => {
