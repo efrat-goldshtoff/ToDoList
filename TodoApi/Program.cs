@@ -29,12 +29,11 @@ var app = builder.Build();
 
 app.UseCors();
 
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
-
     app.UseSwaggerUI();
-}
+// }
 
 //get all tasks
 app.MapGet("/items", async (ToDoDbContext context) =>
@@ -75,6 +74,8 @@ app.MapDelete("/items/{id}", async
     await context.SaveChangesAsync();
     return Results.Ok(item);
 });
+
+app.MapGet("/",()=>"ToDo Api is running!");
 
 app.Run();
 
