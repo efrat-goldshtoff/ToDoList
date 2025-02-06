@@ -20,7 +20,6 @@ builder.Services.AddDbContext<ToDoDbContext>(
         new MySqlServerVersion(new Version(8, 0, 0)));
     });
 
-
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -31,8 +30,8 @@ app.UseCors();
 
 // if (app.Environment.IsDevelopment())
 // {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 // }
 
 //get all tasks
@@ -75,7 +74,7 @@ app.MapDelete("/items/{id}", async
     return Results.Ok(item);
 });
 
-app.MapGet("/",()=>"ToDo Api is running!");
+app.MapGet("/", () => "ToDo Api is running!");
 
 app.Run();
 
