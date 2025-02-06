@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const apiUrl = "https://localhost:5142"//7083
-axios.defaults.baseURL = 'http://localhost:5142/';//https://localhost:3000/';//7083//5142
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;//https://localhost:3000/';//7083//5142
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 axios.interceptors.response.use(
