@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddDbContext<ToDoDbContext>(
     options =>
     {
-        options.UseMySql(builder.Configuration.GetConnectionString("todo"),
+        options.UseMySql(builder.Configuration.GetConnectionString("ToDoListDB"),
         // ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("todo")));
         new MySqlServerVersion(new Version(8, 0, 0)));
     });
