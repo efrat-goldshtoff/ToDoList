@@ -16,8 +16,8 @@ builder.Services.AddDbContext<ToDoDbContext>(
     options =>
     {
         options.UseMySql(builder.Configuration.GetConnectionString("ToDoListDB"),
-        // ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("todo")));
-        new MySqlServerVersion(new Version(8, 0, 0)));
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoListDB")));
+        // new MySqlServerVersion(new Version(8, 0, 0)));
     });
 
 builder.Services.AddSwaggerGen();
@@ -28,11 +28,8 @@ var app = builder.Build();
 
 app.UseCors();
 
-// if (app.Environment.IsDevelopment())
-// {
 app.UseSwagger();
 app.UseSwaggerUI();
-// }
 
 //get all tasks
 app.MapGet("/items", async (ToDoDbContext context) =>
